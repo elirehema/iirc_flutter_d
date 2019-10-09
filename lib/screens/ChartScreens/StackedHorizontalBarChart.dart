@@ -1,31 +1,35 @@
 
-import 'package:flutter/widgets.dart';
+/// Bar chart example
+import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 
-class StackedBarChart extends StatelessWidget{
-  
+class StackedHorizontalBarChart extends StatelessWidget {
   final List<charts.Series> seriesList;
   final bool animate;
-  
-  StackedBarChart(this.seriesList, {this.animate});
 
-  /// Create a Stacked [BarChart] with sample data and no transition
-   
-   factory StackedBarChart.withSampleData(){
-     return new StackedBarChart(
-       _createSampleData(),
-       // Disable animtion for image test
-       animate: false,
-     );
-   }
-  @override
-  Widget build(BuildContext context) {
-    return new charts.BarChart(
-      seriesList,
-      animate:animate,
-      barGroupingType: charts.BarGroupingType.stacked
+  StackedHorizontalBarChart(this.seriesList, {this.animate});
+
+  /// Creates a stacked [BarChart] with sample data and no transition.
+  factory StackedHorizontalBarChart.withSampleData() {
+    return new StackedHorizontalBarChart(
+      _createSampleData(),
+      // Disable animations for image tests.
+      animate: false,
     );
   }
+
+
+  @override
+  Widget build(BuildContext context) {
+    // For horizontal bar charts, set the [vertical] flag to false.
+    return new charts.BarChart(
+      seriesList,
+      animate: animate,
+      barGroupingType: charts.BarGroupingType.stacked,
+      vertical: false,
+    );
+  }
+
   /// Create series list with multiple series
   static List<charts.Series<OrdinalSales, String>> _createSampleData() {
     final desktopSalesData = [
@@ -79,5 +83,3 @@ class OrdinalSales {
 
   OrdinalSales(this.year, this.sales);
 }
-
-  

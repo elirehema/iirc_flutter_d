@@ -1,4 +1,4 @@
-import 'package:amala_statistics/screens/GroupedStackedWeightPatternBarChart.dart';
+
 import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 
@@ -8,10 +8,7 @@ class SimpleBarChart extends StatelessWidget{
 
   SimpleBarChart(this.seriesList,{this.animate});
 
-  /**
-   * Create a [BarChat] with sample data and 
-   * No transition
-   * **/
+  ///Create a [BarChat] with sample data and No transition
    factory SimpleBarChart.withSimpleData(){
      return new SimpleBarChart(
        
@@ -32,8 +29,7 @@ class SimpleBarChart extends StatelessWidget{
       );
   }
 
-  /**
-   * Create one series with sample hard coded data**/
+  /// Create one series with sample hard coded data**/
   static List<charts.Series<OrdinalSales, String>> _createSampleData(){
      final data = [
       new OrdinalSales('2014', 5),
@@ -51,8 +47,7 @@ class SimpleBarChart extends StatelessWidget{
   }
   
 }
-/**
- * Create Sample Ordinal data type**/
+///Create Sample Ordinal data type
  class OrdinalSales {
    final  String year;
    final int sales;
