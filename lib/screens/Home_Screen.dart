@@ -1,3 +1,4 @@
+import 'package:amala_statistics/screens/ChartScreens/GroupedTargetLineBarChart.dart';
 import 'package:amala_statistics/screens/ChartScreens/SimpleBarGraph.dart';
 import 'package:amala_statistics/screens/ChartScreens/StackedBarChart.dart';
 import 'package:amala_statistics/screens/Gauge_Chart_Screen.dart';
@@ -14,7 +15,8 @@ class _HomeScreenState extends State<HomeScreen> {
     GroupedStackedWeightPatternBarChart.withSampleData(),
     GaugeChartScreen.withSampleData(),
     SimpleBarChart.withSimpleData(),
-    StackedBarChart.withSampleData()
+    StackedBarChart.withSampleData(),
+    GroupedBarTargetLineChart.withSampleData()
   ];
 
   final List<int> colorCodes = <int>[600, 500, 400, 300];
@@ -76,8 +78,9 @@ class _HomeScreenState extends State<HomeScreen> {
         (BuildContext context, int index) {
           return Container(
             alignment: Alignment.center,
-            color: Colors.teal[100],
+            color: Colors.teal[900],
             child: new Card(
+              color: Colors.white,
               child: widgetList[index],
             )
           );
