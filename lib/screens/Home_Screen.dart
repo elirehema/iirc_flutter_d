@@ -1,6 +1,7 @@
 import 'package:amala_statistics/screens/ChartScreens/GroupedTargetLineBarChart.dart';
 import 'package:amala_statistics/screens/ChartScreens/SimpleBarGraph.dart';
 import 'package:amala_statistics/screens/ChartScreens/StackedBarChart.dart';
+import 'package:amala_statistics/screens/ChartScreens/StackedHorizontalBarChart.dart';
 import 'package:amala_statistics/screens/Gauge_Chart_Screen.dart';
 import 'package:amala_statistics/screens/GroupedStackedWeightPatternBarChart.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,9 @@ class _HomeScreenState extends State<HomeScreen> {
     GaugeChartScreen.withSampleData(),
     SimpleBarChart.withSimpleData(),
     StackedBarChart.withSampleData(),
-    GroupedBarTargetLineChart.withSampleData()
+    GroupedBarTargetLineChart.withSampleData(),
+    StackedHorizontalBarChart.withSampleData(),
+    
   ];
 
   final List<int> colorCodes = <int>[600, 500, 400, 300];
