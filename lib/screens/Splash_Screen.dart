@@ -15,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen>{
     return new Timer(_duration, navigationPage);
   }
   void navigationPage() {
-  Navigator.of(context).pushReplacementNamed('/LoginScreen');
+  Navigator.of(context).pushReplacementNamed('/HomeScreen');
 }
 
   @override

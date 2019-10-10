@@ -2,6 +2,7 @@ import 'package:amala_statistics/screens/ChartScreens/GroupedTargetLineBarChart.
 import 'package:amala_statistics/screens/ChartScreens/SimpleBarGraph.dart';
 import 'package:amala_statistics/screens/ChartScreens/StackedAreaLineChart.dart';
 import 'package:amala_statistics/screens/ChartScreens/StackedBarChart.dart';
+import 'package:amala_statistics/screens/ChartScreens/StackedHorizontalBarChart.dart';
 import 'package:amala_statistics/screens/Gauge_Chart_Screen.dart';
 import 'package:amala_statistics/screens/GroupedStackedWeightPatternBarChart.dart';
 import 'package:flutter/material.dart';
@@ -17,13 +18,9 @@ class _HomeScreenState extends State<HomeScreen> {
     GaugeChartScreen.withSampleData(),
     SimpleBarChart.withSimpleData(),
     StackedBarChart.withSampleData(),
-<<<<<<< Updated upstream
-    GroupedBarTargetLineChart.withSampleData()
-=======
     GroupedBarTargetLineChart.withSampleData(),
     StackedHorizontalBarChart.withSampleData(),
     StackedAreaLineChart.withSampleData(),
->>>>>>> Stashed changes
   ];
 
   final List<int> colorCodes = <int>[600, 500, 400, 300];
@@ -39,6 +36,9 @@ class _HomeScreenState extends State<HomeScreen> {
             title: Text('Demo'),
           ),
         ),
+
+
+
         SliverGrid(
           gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
             maxCrossAxisExtent: 200.0,
@@ -51,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
               return Container(
                 alignment: Alignment.topCenter,
                 height: 245.0,
-                color: Colors.teal[100 * (index % 9)],
+                color: Colors.amber[100 * (index % 9)],
                 child: widgetList[index],
               );
             },
@@ -72,13 +72,14 @@ class _HomeScreenState extends State<HomeScreen> {
     ),*/
         SliverFixedExtentList(
           itemExtent: 330.0,
+          
           delegate:
               SliverChildBuilderDelegate((BuildContext context, int index) {
             return Container(
                 alignment: Alignment.center,
                 color: Colors.teal[900],
                 child: new Card(
-                  color: Colors.white,
+                  color: Colors.amber[index * 100],
                   child: widgetList[index],
                 ));
           }, childCount: widgetList.length),
