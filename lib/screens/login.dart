@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:amala_statistics/widgets/index.dart';
 
-class LoginScreen extends StatefulWidget {
+class Login extends StatefulWidget {
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,15 +67,16 @@ class _LoginScreenState extends State<LoginScreen> {
                     padding: const EdgeInsets.all(16.0),
                     child: ButtonTheme(
                       minWidth: 200.0,
-                      child: RaisedButton(
-                        child: const Text(
-                          'Login',
-                          style: TextStyle(color: Colors.white),
-                        ),
+                      child: AppButton(
+                        'Login',
                         onPressed: () {
                           Navigator.pushNamed(context, '/HomeScreen');
                         },
-                      ),
+                        buttonName: "Login",
+                        buttonTextStyle: null,
+                      )
+                      
+                      
                     ),
                   )
                 ],
