@@ -14,7 +14,7 @@ description: A new Flutter project.
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.2.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -32,6 +32,7 @@ dev_dependencies:
   charts_flutter: ^0.8.1
   flutter_circular_chart: ^0.1.0
   font_awesome_flutter: 8.5.0
+  backdrop: ^0.1.8
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
