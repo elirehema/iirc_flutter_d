@@ -1,12 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:amala_statistics/screens/index.dart';
+import 'package:amala_statistics/screens/ChartScreens/index.dart';
 
 class Routes {
    final routes = <String, WidgetBuilder>{
       '/HomeScreen': (BuildContext context) => new  HomeScreen(),
       '/LoginScreen': (BuildContext context) => new  Login(),
-      '/GaugeScreen': (BuildContext context) => new GroupedStackedWeightPatternBarChart.withSampleData()
+      '/GaugeScreen': (BuildContext context) => new GroupedStackedWeightPatternBarChart.withSampleData(),
+      '/Setting': (BuildContext context) => new SettingPage(),
     };
 
     Routes(){

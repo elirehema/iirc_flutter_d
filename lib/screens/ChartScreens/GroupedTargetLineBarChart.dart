@@ -2,6 +2,7 @@
 
 import 'package:flutter/widgets.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
+import 'OrdinalSales.dart';
 
 class GroupedBarTargetLineChart extends StatelessWidget {
   final List<charts.Series> seriesList;
@@ -122,10 +123,3 @@ class GroupedBarTargetLineChart extends StatelessWidget {
   }
 }
 
-/// Sample ordinal data type.
-class OrdinalSales {
-  final String year;
-  final int sales;
-
-  OrdinalSales(this.year, this.sales);
-}

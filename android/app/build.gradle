@@ -1,3 +1,19 @@
+/*
+ *
+ * *
+ *   Created by elirehema paul on ${DATE}.
+ *   Last modified: 10/16/19 1:51 PM
+ *   Copyright: All rights reserved Ⓒ 2019 https://twitter.com/e_paul_
+ *   Licensed under the Apache License, Version 2.0 (the "License");
+ *    You may not use this file except in compliance with the License.
+ *   You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+ *   Unless required by applicable law or agreed to in writing, software distributed
+ *   under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *   CONDITIONS OF ANY KIND, either express or implied.
+ *   See the License for the specific language governing permissions and limitations under the License.
+ *
+ */
+
 def localProperties = new Properties()
 def localPropertiesFile = rootProject.file('local.properties')
 if (localPropertiesFile.exists()) {
@@ -39,11 +55,11 @@ android {
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.example.amala_statistics"
-        minSdkVersion 16
+        minSdkVersion 18
         targetSdkVersion 28
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -62,6 +78,6 @@ flutter {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
 }

@@ -2,6 +2,7 @@
 /// Bar chart example
 import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
+import 'OrdinalSales.dart';
 
 class StackedHorizontalBarChart extends StatelessWidget {
   final List<charts.Series> seriesList;
@@ -76,10 +77,3 @@ class StackedHorizontalBarChart extends StatelessWidget {
   }
 }
 
-/// Sample ordinal data type.
-class OrdinalSales {
-  final String year;
-  final int sales;
-
-  OrdinalSales(this.year, this.sales);
-}

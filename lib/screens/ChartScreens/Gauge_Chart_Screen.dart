@@ -50,7 +50,6 @@ class GaugeChartScreen extends StatelessWidget {
     ];
   }
 }
-
 /// Sample data type.
 class GaugeSegment {
   final String segment;
