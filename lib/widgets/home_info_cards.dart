@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:amala_statistics/utils/utils.dart';
 
-class AppHomescreenCard extends StatelessWidget {
+class HomeInfoCards extends StatefulWidget {
   final VoidCallback onPressed;
   final TextStyle buttonTextStyle;
   final String tittle;
@@ -9,8 +10,7 @@ class AppHomescreenCard extends StatelessWidget {
   final int index;
 
   //passing props in react style
-  AppHomescreenCard(
-    String s, {
+  HomeInfoCards(String s,{
     this.index,
     this.tittle,
     this.subtitle,
@@ -18,9 +18,16 @@ class AppHomescreenCard extends StatelessWidget {
     this.onPressed,
     this.buttonTextStyle,
   });
+  @override
+  _HomeInfoCardsState createState() => _HomeInfoCardsState();
+}
+
+class _HomeInfoCardsState extends State<HomeInfoCards> {
 
   @override
   Widget build(BuildContext context) {
+
+    Screen size = Screen(MediaQuery.of(context).size);
     return new Container(
       width: null,
       child: Card(
@@ -30,50 +37,31 @@ class AppHomescreenCard extends StatelessWidget {
         elevation: 5,
         color: Colors.white,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            const ListTile(
+          ListTile(
               leading: Icon(
                 Icons.settings,
                 size: 50,
                 color: Colors.red,
               ),
-              title: Text('Total Clients',
+              title: Text(widget.tittle,
                   style: TextStyle(
                       color: Colors.green, fontWeight: FontWeight.bold)),
               subtitle:
-                  Text('20,230,000', style: TextStyle(color: Colors.blue)),
+                  Text('widget.subtitle', style: TextStyle(color: Colors.blue)),
             ),
             Container(
               color: Colors.red[400],
               height: 10.0,
-             /* child: ButtonTheme.bar(
-                textTheme: ButtonTextTheme.accent,
-                buttonColor: Colors.greenAccent,
-                child: ButtonBar(
-                  mainAxisSize: MainAxisSize.max,
-                  children: <Widget>[
-                    Row(
-                      children: <Widget>[
-                        RaisedButton(
-                          child: const Text('Edit',
-                              style: TextStyle(color: Colors.green)),
-                          onPressed: () {},
-                        ),
-                        RaisedButton(
-                          child: const Text('Delete',
-                              style: TextStyle(color: Colors.green)),
-                          onPressed: () {},
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-              ),*/
+
             ),
           ],
         ),
+
       ),
     );
   }
 }
+

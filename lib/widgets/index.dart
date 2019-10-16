@@ -1,7 +1,7 @@
 export './app_button.dart';
 export './app_bottom_navigation_bar.dart';
 export './app_floating_action_buttom.dart';
-export './app_homescreen_card.dart';
+export './home_info_cards.dart';
 export './dots_indicator.dart';
 export './gradient_text.dart';
 export './boxfield.dart';
@@ -13,3 +13,4 @@ export './progress_widget.dart';
 export './tabs_chips.dart';
 export './setting_section.dart';
 export './switch_row.dart';
+export './chip_widget.dart';

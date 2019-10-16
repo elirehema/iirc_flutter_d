@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:amala_statistics/utils/utils.dart';
 
-import 'tile_row.dart';
 
 class SettingSection extends StatefulWidget {
   final String headerText;
@@ -57,3 +56,4 @@ class _SettingSectionState extends State<SettingSection> {
     );
   }
 }
+
