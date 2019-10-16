@@ -1,4 +1,4 @@
-
+import 'OrdinalSales.dart';
 import 'package:flutter/widgets.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 
@@ -72,12 +72,6 @@ class StackedBarChart extends StatelessWidget{
   }
 }
 
-/// Sample ordinal data type.
-class OrdinalSales {
-  final String year;
-  final int sales;
 
-  OrdinalSales(this.year, this.sales);
-}
 
   

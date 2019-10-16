@@ -1,10 +1,4 @@
-import 'package:amala_statistics/screens/ChartScreens/GroupedTargetLineBarChart.dart';
-import 'package:amala_statistics/screens/ChartScreens/SimpleBarGraph.dart';
-import 'package:amala_statistics/screens/ChartScreens/StackedAreaLineChart.dart';
-import 'package:amala_statistics/screens/ChartScreens/StackedBarChart.dart';
-import 'package:amala_statistics/screens/ChartScreens/StackedHorizontalBarChart.dart';
-import 'package:amala_statistics/screens/Gauge_Chart_Screen.dart';
-import 'package:amala_statistics/screens/GroupedStackedWeightPatternBarChart.dart';
+import 'package:amala_statistics/screens/ChartScreens/index.dart';
 import 'package:amala_statistics/widgets/index.dart';
 import 'package:backdrop/backdrop.dart';
 import 'package:flutter/material.dart';
@@ -212,7 +206,9 @@ class _HomeScreenState extends State<MyHomeScreen> {
         ),
         floatingActionButton: AppFloatingActionButton(
             'app_floating_action_button',
-            onPressed: null,
+            onPressed: (){
+              Navigator.pushNamed(context, '/Setting');
+            },
             tooltip: 'Increment Counter',
             child: Icon(Icons.settings)),
         floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,

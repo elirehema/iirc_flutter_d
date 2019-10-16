@@ -5,6 +5,7 @@
 /// bar group. If not specified, each bar in the group will have an equal width.
 import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
+import 'OrdinalSales.dart';
 
 class GroupedStackedWeightPatternBarChart extends StatelessWidget {
   final List<charts.Series> seriesList;
@@ -129,10 +130,3 @@ class GroupedStackedWeightPatternBarChart extends StatelessWidget {
   }
 }
 
-/// Sample ordinal data type.
-class OrdinalSales {
-  final String year;
-  final int sales;
-
-  OrdinalSales(this.year, this.sales);
-}
