@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 
+
 class SimpleBarChart extends StatelessWidget{
   final List<charts.Series> seriesList;
   final bool animate;

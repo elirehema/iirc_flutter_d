@@ -8,7 +8,7 @@ class Routes {
       '/HomeScreen': (BuildContext context) => new  HomeScreen(),
       '/LoginScreen': (BuildContext context) => new  Login(),
       '/GaugeScreen': (BuildContext context) => new GroupedStackedWeightPatternBarChart.withSampleData(),
-      '/Setting': (BuildContext context) => new SettingPage(),
+      '/setting': (BuildContext context) => new SettingPage(),
     };
 
     Routes(){

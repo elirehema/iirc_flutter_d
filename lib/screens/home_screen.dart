@@ -1,7 +1,10 @@
+import 'package:amala_statistics/screens/ChartScreens/BucketingAxisScatterPlotChart.dart';
 import 'package:amala_statistics/screens/ChartScreens/index.dart';
+import 'package:amala_statistics/screens/page_settings.dart';
 import 'package:amala_statistics/widgets/index.dart';
 import 'package:backdrop/backdrop.dart';
 import 'package:flutter/material.dart';
+import 'package:badges/badges.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -52,12 +55,24 @@ class _HomeScreenState extends State<MyHomeScreen> {
     GroupedBarTargetLineChart.withSampleData(),
     StackedHorizontalBarChart.withSampleData(),
     StackedAreaLineChart.withSampleData(),
+    BucketingAxisScatterPlotChart.withSampleData(),
   ];
-  final List<String> reportList = [
-    'Active Loans',
-    'Active Clients',
+  final List<String> reportTitle = [
+    
+    'Clients',
+    'Groups',
+    'Centers',
     'Users',
-    'No. of Offices'
+    'Employees',
+    'Offices',
+    'Tellers',
+    'Loans',
+    'OverDue',
+    'Savings',
+    'Shares',
+    'Reports',
+    
+
   ];
 
   final List<int> colorCodes = <int>[600, 500, 400, 300];
@@ -82,7 +97,6 @@ class _HomeScreenState extends State<MyHomeScreen> {
         key: _scaffoldKey,
         backgroundColor: Colors.transparent,
         appBar: AppBar(
-          title: Text('App Bar'),
           backgroundColor: Colors.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(
@@ -93,62 +107,47 @@ class _HomeScreenState extends State<MyHomeScreen> {
         body: Center(
           child: new Container(
             child: ListView(
+              
               children: <Widget>[
-                Row(
-                  children: <Widget>[
-                    Flexible(
-                      child: AppHomescreenCard(
-                        '',
-                      ),
-                    ),
-                    Flexible(
-                      child: AppHomescreenCard(
-                        '',
-                      ),
-                    )
-                  ],
+                Card(
+                  elevation: 5,
+                  child: SizedBox(
+                  // Horizontal ListView
+                  height: 100,
+                  child: ListView.builder(
+                    itemCount: reportTitle.length,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        width: null,
+                        padding: const EdgeInsets.all(8.0),
+                        alignment: Alignment.center,
+                        color: Colors.white,
+                        child: ChipWidget('chip',nameText: reportTitle[index],valueText: '${(2030/(109+index)*10)}',index: index,),
+                      );
+                    },
+                  ),
                 ),
-                AppHomescreenCard(
-                  '',
-                ),
-                GridView.count(
-                  crossAxisCount: 2,
-                  physics: ScrollPhysics(), // to disable GridView's scrolling
-                  shrinkWrap: true,
-
-                  children: List.generate(reportList.length, (index) {
-                    return Center(
-                      child: AppHomescreenCard('app_home_bar',
-                      index: index,
-                      tittle: reportList[index],
-                      )
-                    );
-                  }),
-                ),
+            ),
+            Card(
+              elevation: 4.0,
+              child: SizedBox(
+                height: 350,
+                child: BucketingAxisScatterPlotChart.withSampleData(),
+              )
+            ),
+             Card(
+              elevation: 4.0,
+              child: SizedBox(
+                height: 350,
+                child: NonzeroBoundMeasureAxis.withSampleData(),
+              )
+            ),
+         
               ],
             ),
           ),
         ),
-
-        /* CustomScrollView(
-          controller: _scrollController,
-          slivers: <Widget>[
-            SliverFixedExtentList(
-              itemExtent: 150.0,
-              delegate: SliverChildBuilderDelegate((BuildContext context, int index) {
-                return Container(
-                    color: Colors.white,
-                    child: AppHomescreenCard('app_home_screen',
-                    index: index,
-                      tittle: 'Screen',
-                      subtitle: 'Subtitle ${{index}}',
-                    ),
-                    
-                    );
-              }, childCount: widgetList.length),
-            ),
-          ],
-        ),*/
         drawer: Drawer(
           child: ListView(
             padding: EdgeInsets.zero,
@@ -205,12 +204,10 @@ class _HomeScreenState extends State<MyHomeScreen> {
           ),
         ),
         floatingActionButton: AppFloatingActionButton(
-            'app_floating_action_button',
-            onPressed: (){
-              Navigator.pushNamed(context, '/Setting');
-            },
-            tooltip: 'Increment Counter',
-            child: Icon(Icons.settings)),
+            'app_floating_action_button', onPressed: () {
+          Navigator.push(context,
+              new MaterialPageRoute(builder: (context) => new SettingPage()));
+        }, tooltip: 'Increment Counter', child: Icon(Icons.settings)),
         floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       ),
       iconPosition: BackdropIconPosition.leading,
@@ -220,88 +217,5 @@ class _HomeScreenState extends State<MyHomeScreen> {
         ),
       ],
     );
-    /*return new Scaffold(
-      extendBody: true,
-      body: CustomScrollView(
-        controller: _scrollController,
-        slivers: <Widget>[
-       
-          SliverFixedExtentList(
-            itemExtent: 330.0,
-            delegate:
-                SliverChildBuilderDelegate((BuildContext context, int index) {
-              return Container(
-                  alignment: Alignment.center,
-                  color: Colors.teal[900],
-                  child: new Card(
-                    color: Colors.amber[index * 100],
-                    child: widgetList[index],
-                  ));
-            }, childCount: widgetList.length),
-          ),
-        ],
-      ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            DrawerHeader(
-              child: Text(
-                'Flutter Intro',
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 25,
-                    color: Colors.white70),
-              ),
-              decoration: BoxDecoration(
-                color: Colors.blue,
-                image: DecorationImage(
-                  image: ExactAssetImage('images/icon_three.jpg'),
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            Divider(
-              height: 8.0,
-              color: Colors.teal,
-              indent: 8.0,
-              endIndent: 8.0,
-            ),
-            ListTile(
-              leading: new Icon(
-                Icons.settings,
-                color: Colors.black,
-              ),
-              title: Text('Settings'),
-              subtitle: Text(_lorem),
-              dense: true,
-              onTap: () {
-                Navigator.pushNamed(context, '/inputs');
-              },
-            ),
-          ],
-        ),
-      ),
-      bottomNavigationBar: AppBottomAppBar(
-        'floating_action_button',
-        child: new Row(
-          mainAxisSize: MainAxisSize.max,
-          children: <Widget>[
-            IconButton(
-              icon: Icon(Icons.menu, color: Colors.white),
-              onPressed: () {
-                _scaffoldKey.currentState.openDrawer();
-              },
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: AppFloatingActionButton(
-          'app_floating_action_button',
-          onPressed: null,
-          tooltip: 'Increment Counter',
-          child: Icon(Icons.settings)),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
-    );*/
   }
 }
