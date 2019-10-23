@@ -36,7 +36,7 @@ class _ChipWidgetState extends State<ChipWidget> {
           backgroundColor: Colors.blue[8 * 100],
           child: Text('${widget.nameText[0].toUpperCase()}'),
         ),
-        backgroundColor: Colors.grey,
+        backgroundColor: Colors.blue[900],
         padding: EdgeInsets.all(0),
         label: Text(widget.nameText, style: TextStyle(color: Colors.white)),
         elevation: 2.0,
