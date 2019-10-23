@@ -12,9 +12,7 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    - name: Install library
-      run: apt-get install lib32stdc++6
     - name: Install dependencies
-      run: flutter pub get
+      run: pub get
     - name: Run tests
-      run: flutter test --track-widget-creation lib/test/
+      run: pub test --track-widget-creation lib/test/
