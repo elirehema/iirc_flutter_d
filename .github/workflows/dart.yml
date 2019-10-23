@@ -12,7 +12,9 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
+    - name: Switch flutter channel
+      run: flutter channel stable
     - name: Install dependencies
-      run: flutter pub get
+      run: pub get
     - name: Run tests
-      run: flutter test --track-widget-creation lib/test/
+      run: pub run test
