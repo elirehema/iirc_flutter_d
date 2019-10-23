@@ -1,20 +1,15 @@
 import 'package:amala_statistics/screens/ChartScreens/BucketingAxisScatterPlotChart.dart';
 import 'package:amala_statistics/screens/ChartScreens/index.dart';
-import 'package:amala_statistics/screens/page_settings.dart';
+import 'package:amala_statistics/screens/index.dart';
 import 'package:amala_statistics/widgets/index.dart';
 import 'package:backdrop/backdrop.dart';
 import 'package:flutter/material.dart';
-import 'package:badges/badges.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      title: 'Flutter Demo',
-      theme: new ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: new MyHomeScreen(title: 'Home Screen'),
+    return new Scaffold(
+      body:  new MyHomeScreen(title: 'Home Screen'),
     );
   }
 }
@@ -179,11 +174,11 @@ class _HomeScreenState extends State<MyHomeScreen> {
                   Icons.settings,
                   color: Colors.black,
                 ),
-                title: Text('Settings'),
+                title: Text('Payment\'s'),
                 subtitle: Text(_lorem),
                 dense: true,
                 onTap: () {
-                  Navigator.pushNamed(context, '/inputs');
+                  Navigator.pushNamed(context, '/payments');
                 },
               ),
             ],
