@@ -91,34 +91,26 @@ class _HomeScreenState extends State<MyHomeScreen> {
         extendBody: true,
         key: _scaffoldKey,
         backgroundColor: Colors.transparent,
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(
-              top: Radius.circular(10),
-            ),
-          ),
-        ),
+      
         body: Center(
           child: new Container(
             child: ListView(
-              
               children: <Widget>[
                 Card(
-                  elevation: 5,
+                  elevation: 0,
                   child: SizedBox(
                   // Horizontal ListView
-                  height: 100,
+                  height: 80,
                   child: ListView.builder(
                     itemCount: reportTitle.length,
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
                       return Container(
                         width: null,
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(5.0),
                         alignment: Alignment.center,
                         color: Colors.white,
-                        child: ChipWidget('chip',nameText: reportTitle[index],valueText: '${(2030/(109+index)*10)}',index: index,),
+                        child: ChipWidget('chip',nameText: reportTitle[index],valueText: '${(2030* index + 10)}',index: index,),
                       );
                     },
                   ),
@@ -149,38 +141,94 @@ class _HomeScreenState extends State<MyHomeScreen> {
             children: <Widget>[
               DrawerHeader(
                 child: Text(
-                  'Flutter Intro',
+                  'Amala Statistic\'s',
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 25,
-                      color: Colors.white70),
+                      color: Colors.blue),
                 ),
                 decoration: BoxDecoration(
                   color: Colors.blue,
                   image: DecorationImage(
-                    image: ExactAssetImage('images/icon_three.jpg'),
+                    image: ExactAssetImage('images/bac_ground_one.jpg'),
                     fit: BoxFit.cover,
                   ),
                 ),
               ),
-              Divider(
-                height: 8.0,
-                color: Colors.teal,
-                indent: 8.0,
-                endIndent: 8.0,
+
+              ListTileWidget(
+                'nav_home',
+                title: 'Home',
+                subTitle: _lorem,
+                icon: Icons.home,
+                disabled: false,
+                onTap: (){
+
+                },
               ),
-              ListTile(
-                leading: new Icon(
-                  Icons.settings,
-                  color: Colors.black,
-                ),
-                title: Text('Payment\'s'),
-                subtitle: Text(_lorem),
-                dense: true,
-                onTap: () {
+
+              ListTileWidget(
+                'nav_payments',
+                title: 'Paymment\'s',
+                subTitle: _lorem,
+                icon: Icons.attach_money,
+                disabled: false,
+                onTap: (){
                   Navigator.pushNamed(context, '/payments');
                 },
               ),
+              ListTileWidget(
+                'nav_recent_transaction',
+                title: 'Recent Transaction\'s',
+                subTitle: _lorem,
+                disabled: false,
+                icon: Icons.view_list,
+                onTap: (){
+
+                },
+              ),
+              ListTileWidget(
+                'nav_reports',
+                title: 'Reports',
+                subTitle: _lorem,
+                disabled: false,
+                icon: Icons.graphic_eq,
+                onTap: (){
+
+                },
+              ),
+
+              ListTileWidget(
+                'nav_about_us',
+                title: 'About Us',
+                subTitle: _lorem,
+                disabled: false,
+                icon: Icons.info,
+                onTap: (){
+
+                },
+              ),
+              ListTileWidget(
+                'nav_help',
+                title: 'Help',
+                subTitle: _lorem,
+                disabled: false,
+                icon: Icons.help_outline,
+                onTap: (){
+
+                },
+              ),
+              ListTileWidget(
+                'nav_settings',
+                title: 'Settings',
+                subTitle: _lorem,
+                disabled: false,
+                icon: Icons.settings,
+                onTap: (){
+                  Navigator.pushNamed(context, '/settings');
+                },
+              ),
+
             ],
           ),
         ),
@@ -193,6 +241,11 @@ class _HomeScreenState extends State<MyHomeScreen> {
                 icon: Icon(Icons.menu, color: Colors.white),
                 onPressed: () {
                   _scaffoldKey.currentState.openDrawer();
+                },
+              ),
+              IconButton(
+                icon: Icon(Icons.settings_applications, color: Colors.white),
+                onPressed: () {
                 },
               ),
             ],

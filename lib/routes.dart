@@ -5,11 +5,10 @@ import 'package:amala_statistics/screens/ChartScreens/index.dart';
 
 class Routes {
    final routes = <String, WidgetBuilder>{
-      '/': (BuildContext context) => new  HomeScreen(),
       '/HomeScreen': (BuildContext context) => new  HomeScreen(),
       '/LoginScreen': (BuildContext context) => new  Login(),
       '/GaugeScreen': (BuildContext context) => new GroupedStackedWeightPatternBarChart.withSampleData(),
-      '/setting': (BuildContext context) => new SettingPage(),
+      '/settings': (BuildContext context) => new SettingPage(),
       '/payments': (BuildContext context) => new MyHomePage(title: 'Home Page',),
     };
 
