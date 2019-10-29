@@ -12,7 +12,7 @@ class ListTileWidget extends StatefulWidget {
   final bool disabled;
 
   const ListTileWidget(
-    @required String s, {
+    String s, {
     Key key,
     this.iconColor,
     this.subTitle,
