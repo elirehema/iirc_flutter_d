@@ -2,14 +2,16 @@ import 'package:amala_statistics/screens/ChartScreens/BucketingAxisScatterPlotCh
 import 'package:amala_statistics/screens/ChartScreens/index.dart';
 import 'package:amala_statistics/screens/index.dart';
 import 'package:amala_statistics/widgets/index.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:backdrop/backdrop.dart';
 import 'package:flutter/material.dart';
+import 'package:amala_statistics/utils/index.dart' as colors;
 
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      body:  new MyHomeScreen(title: 'Home Screen'),
+      body: new MyHomeScreen(title: 'Home Screen'),
     );
   }
 }
@@ -53,7 +55,6 @@ class _HomeScreenState extends State<MyHomeScreen> {
     BucketingAxisScatterPlotChart.withSampleData(),
   ];
   final List<String> reportTitle = [
-    
     'Clients',
     'Groups',
     'Centers',
@@ -66,8 +67,6 @@ class _HomeScreenState extends State<MyHomeScreen> {
     'Savings',
     'Shares',
     'Reports',
-    
-
   ];
 
   final List<int> colorCodes = <int>[600, 500, 400, 300];
@@ -78,63 +77,101 @@ class _HomeScreenState extends State<MyHomeScreen> {
       title: Text("Backdrop Example"),
       backLayer: Center(
           child: ListView.builder(
-              padding: const EdgeInsets.all(8),
+              padding: const EdgeInsets.all(2.0),
               itemCount: widgetList.length,
               itemBuilder: (BuildContext context, int index) {
                 return Container(
                   height: 350,
-                  color: Colors.blue[index * 100],
+                  color: Colors.white,
                   child: widgetList[index],
                 );
               })),
       frontLayer: Scaffold(
         extendBody: true,
         key: _scaffoldKey,
-        backgroundColor: Colors.transparent,
-      
+        backgroundColor: colors.backgroundColor,
         body: Center(
           child: new Container(
+            color: colors.backgroundColor,
             child: ListView(
               children: <Widget>[
                 Card(
                   elevation: 0,
+                  color: colors.backgroundColor,
                   child: SizedBox(
-                  // Horizontal ListView
-                  height: 80,
-                  child: ListView.builder(
-                    itemCount: reportTitle.length,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) {
-                      return Container(
-                        width: null,
-                        padding: const EdgeInsets.all(5.0),
-                        alignment: Alignment.center,
-                        color: Colors.white,
-                        child: ChipWidget('chip',nameText: reportTitle[index],valueText: '${(2030* index + 10)}',index: index,),
-                      );
-                    },
+                    // Horizontal ListView
+                    height: 80,
+                    child: ListView.builder(
+                      itemCount: reportTitle.length,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (context, index) {
+                        return Container(
+                          width: null,
+                          margin: const EdgeInsets.all(5.0),
+                          alignment: Alignment.center,
+
+                          child: ChipWidget(
+                            'chip',
+                            nameText: reportTitle[index],
+                            valueText: '${(2030 * index + 10)}',
+                            index: index,
+                          ),
+                        );
+                      },
+                    ),
                   ),
                 ),
-            ),
-            Card(
-              elevation: 4.0,
-              child: SizedBox(
-                height: 350,
-                child: BucketingAxisScatterPlotChart.withSampleData(),
-              )
-            ),
-             Card(
-              elevation: 4.0,
-              child: SizedBox(
-                height: 350,
-                child: NonzeroBoundMeasureAxis.withSampleData(),
-              )
-            ),
-         
+
+                Card(
+                  elevation: 0,
+                  color: Colors.transparent,
+                  child: SizedBox(
+                    // Horizontal ListView
+                    height: 145,
+                    child: ListView.builder(
+                      itemCount: reportTitle.length,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (context, index) {
+                        return Container(
+                          width: null,
+                          margin: const EdgeInsets.all(0.0),
+                          alignment: Alignment.center,
+
+                          child: DataCard(
+                            'chip',
+                            icon: FontAwesomeIcons.clock,
+                            title: '${(2030 * index + 10)/index}',
+                            subTitle: 'Expected Speed ',
+
+                          ),
+
+                        );
+
+                      },
+                    ),
+                  ),
+
+                ),
+
+                Card(
+                    elevation: 0.0,
+                    child: SizedBox(
+                      height: 350,
+                      child: BucketingAxisScatterPlotChart.withSampleData(),
+                    )),
+                Card(
+                    elevation: 4.0,
+                    child: SizedBox(
+                      height: 350,
+                      child: NonzeroBoundMeasureAxis.withSampleData(),
+                    )),
               ],
             ),
           ),
         ),
+        /**
+         * Navigation Drawer start here
+         * **/
         drawer: Drawer(
           child: ListView(
             padding: EdgeInsets.zero,
@@ -155,25 +192,21 @@ class _HomeScreenState extends State<MyHomeScreen> {
                   ),
                 ),
               ),
-
               ListTileWidget(
                 'nav_home',
                 title: 'Home',
                 subTitle: _lorem,
                 icon: Icons.home,
                 disabled: false,
-                onTap: (){
-
-                },
+                onTap: () {},
               ),
-
               ListTileWidget(
                 'nav_payments',
                 title: 'Paymment\'s',
                 subTitle: _lorem,
                 icon: Icons.attach_money,
                 disabled: false,
-                onTap: (){
+                onTap: () {
                   Navigator.pushNamed(context, '/payments');
                 },
               ),
@@ -183,9 +216,7 @@ class _HomeScreenState extends State<MyHomeScreen> {
                 subTitle: _lorem,
                 disabled: false,
                 icon: Icons.view_list,
-                onTap: (){
-
-                },
+                onTap: () {},
               ),
               ListTileWidget(
                 'nav_reports',
@@ -193,20 +224,15 @@ class _HomeScreenState extends State<MyHomeScreen> {
                 subTitle: _lorem,
                 disabled: false,
                 icon: Icons.graphic_eq,
-                onTap: (){
-
-                },
+                onTap: () {},
               ),
-
               ListTileWidget(
                 'nav_about_us',
                 title: 'About Us',
                 subTitle: _lorem,
                 disabled: false,
                 icon: Icons.info,
-                onTap: (){
-
-                },
+                onTap: () {},
               ),
               ListTileWidget(
                 'nav_help',
@@ -214,9 +240,7 @@ class _HomeScreenState extends State<MyHomeScreen> {
                 subTitle: _lorem,
                 disabled: false,
                 icon: Icons.help_outline,
-                onTap: (){
-
-                },
+                onTap: () {},
               ),
               ListTileWidget(
                 'nav_settings',
@@ -224,14 +248,15 @@ class _HomeScreenState extends State<MyHomeScreen> {
                 subTitle: _lorem,
                 disabled: false,
                 icon: Icons.settings,
-                onTap: (){
+                onTap: () {
                   Navigator.pushNamed(context, '/settings');
                 },
               ),
-
             ],
           ),
         ),
+        /**
+         * Bottom navigation  start here **/
         bottomNavigationBar: AppBottomAppBar(
           'floating_action_button',
           child: new Row(
@@ -245,12 +270,13 @@ class _HomeScreenState extends State<MyHomeScreen> {
               ),
               IconButton(
                 icon: Icon(Icons.settings_applications, color: Colors.white),
-                onPressed: () {
-                },
+                onPressed: () {},
               ),
             ],
           ),
         ),
+        /**
+         * Floating Action Button Start here */
         floatingActionButton: AppFloatingActionButton(
             'app_floating_action_button', onPressed: () {
           Navigator.push(context,
