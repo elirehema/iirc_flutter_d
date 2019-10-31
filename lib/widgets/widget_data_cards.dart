@@ -2,6 +2,8 @@ import 'package:amala_statistics/utils/responsive_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:amala_statistics/utils/index.dart' as colors;
+import 'package:amala_statistics/widgets/widget_percentage.dart';
+
 
 class DataCard extends StatefulWidget{
 
@@ -36,16 +38,11 @@ class _DataCardsWidgetState extends State<DataCard>{
   @override
   Widget build(BuildContext context) {
     Screen size = Screen(MediaQuery.of(context).size);
-    // TODO: implement build
     return new   Container(
-      width: 160,
-      height: 140,
-      padding: EdgeInsets.only(
-          right: size.getWidthPx(12), left: size.getWidthPx(2)),
-
+      width: 130,
       child: Card(
         color: colors.textPrimaryLightColor,
-        elevation: 5.0,
+        elevation: 1.0,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,6 +54,7 @@ class _DataCardsWidgetState extends State<DataCard>{
                 size: 24.0,
                 semanticLabel:
                 'Text to announce in accessibility modes',
+                color: colors.disabledTextColour,
               ),
             ),
             Padding(

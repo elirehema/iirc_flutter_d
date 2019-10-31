@@ -94,65 +94,76 @@ class _HomeScreenState extends State<MyHomeScreen> {
           child: new Container(
             color: colors.backgroundColor,
             child: ListView(
+              scrollDirection: Axis.vertical,
               children: <Widget>[
-                Card(
-                  elevation: 0,
-                  color: colors.backgroundColor,
-                  child: SizedBox(
-                    // Horizontal ListView
-                    height: 80,
-                    child: ListView.builder(
-                      itemCount: reportTitle.length,
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) {
-                        return Container(
-                          width: null,
-                          margin: const EdgeInsets.all(5.0),
-                          alignment: Alignment.center,
-
-                          child: ChipWidget(
-                            'chip',
-                            nameText: reportTitle[index],
-                            valueText: '${(2030 * index + 10)}',
-                            index: index,
-                          ),
-                        );
-                      },
-                    ),
+                Container(
+                  // Horizontal ListView
+                  height: 70,
+                  margin: const EdgeInsets.only(top: 10.0),
+                  child: ListView.builder(
+                    itemCount: reportTitle.length,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        width: null,
+                        margin: const EdgeInsets.only(left: 3.0),
+                        alignment: Alignment.center,
+                        child: ChipWidget(
+                          'chip',
+                          nameText: reportTitle[index],
+                          valueText: '${(2030 * index + 10)}',
+                          index: index,
+                        ),
+                      );
+                    },
                   ),
                 ),
+                Container(
+                  // Horizontal ListView
+                  height: 150,
 
-                Card(
-                  elevation: 0,
-                  color: Colors.transparent,
-                  child: SizedBox(
-                    // Horizontal ListView
-                    height: 145,
-                    child: ListView.builder(
-                      itemCount: reportTitle.length,
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) {
-                        return Container(
-                          width: null,
-                          margin: const EdgeInsets.all(0.0),
-                          alignment: Alignment.center,
+                  child: ListView.builder(
+                    itemCount: reportTitle.length,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        width: null,
+                        margin: const EdgeInsets.all(0.0),
+                        alignment: Alignment.center,
+                        child: DataCard(
+                          'chip',
+                          icon: FontAwesomeIcons.clock,
+                          title: '${(2030 * index + 10) / index}',
+                          subTitle: 'Expected Speed ',
 
-                          child: DataCard(
-                            'chip',
-                            icon: FontAwesomeIcons.clock,
-                            title: '${(2030 * index + 10)/index}',
-                            subTitle: 'Expected Speed ',
-
-                          ),
-
-                        );
-
-                      },
-                    ),
+                        ),
+                      );
+                    },
                   ),
-
                 ),
-
+                Container(
+                  // Horizontal ListView
+                  height: 150,
+                  child: ListView.builder(
+                    itemCount: reportTitle.length,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        width: null,
+                        margin: const EdgeInsets.all(0.0),
+                        alignment: Alignment.center,
+                        child: CircularPercentage(
+                          'circular_percentage',
+                          percentage: 0.0833 * index,
+                          title: '${0.5 * index} %',
+                          radius: 100.0,
+                          lineWidth: 13.0,
+                          footer: 'Expected Sales',
+                        ),
+                      );
+                    },
+                  ),
+                ),
                 Card(
                     elevation: 0.0,
                     child: SizedBox(
@@ -173,87 +184,7 @@ class _HomeScreenState extends State<MyHomeScreen> {
          * Navigation Drawer start here
          * **/
         drawer: Drawer(
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: <Widget>[
-              DrawerHeader(
-                child: Text(
-                  'Amala Statistic\'s',
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 25,
-                      color: Colors.blue),
-                ),
-                decoration: BoxDecoration(
-                  color: Colors.blue,
-                  image: DecorationImage(
-                    image: ExactAssetImage('images/bac_ground_one.jpg'),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-              ListTileWidget(
-                'nav_home',
-                title: 'Home',
-                subTitle: _lorem,
-                icon: Icons.home,
-                disabled: false,
-                onTap: () {},
-              ),
-              ListTileWidget(
-                'nav_payments',
-                title: 'Paymment\'s',
-                subTitle: _lorem,
-                icon: Icons.attach_money,
-                disabled: false,
-                onTap: () {
-                  Navigator.pushNamed(context, '/payments');
-                },
-              ),
-              ListTileWidget(
-                'nav_recent_transaction',
-                title: 'Recent Transaction\'s',
-                subTitle: _lorem,
-                disabled: false,
-                icon: Icons.view_list,
-                onTap: () {},
-              ),
-              ListTileWidget(
-                'nav_reports',
-                title: 'Reports',
-                subTitle: _lorem,
-                disabled: false,
-                icon: Icons.graphic_eq,
-                onTap: () {},
-              ),
-              ListTileWidget(
-                'nav_about_us',
-                title: 'About Us',
-                subTitle: _lorem,
-                disabled: false,
-                icon: Icons.info,
-                onTap: () {},
-              ),
-              ListTileWidget(
-                'nav_help',
-                title: 'Help',
-                subTitle: _lorem,
-                disabled: false,
-                icon: Icons.help_outline,
-                onTap: () {},
-              ),
-              ListTileWidget(
-                'nav_settings',
-                title: 'Settings',
-                subTitle: _lorem,
-                disabled: false,
-                icon: Icons.settings,
-                onTap: () {
-                  Navigator.pushNamed(context, '/settings');
-                },
-              ),
-            ],
-          ),
+         child: mDrawerLayout(),
         ),
         /**
          * Bottom navigation  start here **/

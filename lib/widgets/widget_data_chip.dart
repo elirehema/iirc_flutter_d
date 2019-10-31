@@ -1,6 +1,3 @@
-
-
-import 'package:amala_statistics/utils/responsive_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart';
 
@@ -23,9 +20,8 @@ class ChipWidget extends StatefulWidget {
 class _ChipWidgetState extends State<ChipWidget> {
   @override
   Widget build(BuildContext context) {
-    Screen size = Screen(MediaQuery.of(context).size);
 
-    // TODO: implement build
+  
     return Badge(
       badgeContent: Text(widget.valueText, style: TextStyle(color: Colors.white),),
       position: BadgePosition.topLeft(top: -8, left: 30),

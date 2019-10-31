@@ -53,6 +53,9 @@ class _HomeInfoCardsState extends State<HomeInfoCards> {
                   Text('widget.subtitle', style: TextStyle(color: Colors.blue)),
             ),
             Container(
+                padding: EdgeInsets.only(
+          right: size.getWidthPx(12), left: size.getWidthPx(2)),
+
               color: Colors.red[400],
               height: 10.0,
 
