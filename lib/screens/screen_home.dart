@@ -42,8 +42,6 @@ class _HomeScreenState extends State<MyHomeScreen> {
     });
   }
 
-  static const String _lorem =
-      "Lorem ipsum sit de amet constectuer adipiscing elit..";
   final List<Widget> widgetList = <Widget>[
     GroupedStackedWeightPatternBarChart.withSampleData(),
     GaugeChartScreen.withSampleData(),
@@ -98,7 +96,7 @@ class _HomeScreenState extends State<MyHomeScreen> {
               children: <Widget>[
                 Container(
                   // Horizontal ListView
-                  height: 70,
+                  height: 65,
                   margin: const EdgeInsets.only(top: 10.0),
                   child: ListView.builder(
                     itemCount: reportTitle.length,
@@ -120,7 +118,7 @@ class _HomeScreenState extends State<MyHomeScreen> {
                 ),
                 Container(
                   // Horizontal ListView
-                  height: 150,
+                  height: 118,
 
                   child: ListView.builder(
                     itemCount: reportTitle.length,
@@ -132,10 +130,9 @@ class _HomeScreenState extends State<MyHomeScreen> {
                         alignment: Alignment.center,
                         child: DataCard(
                           'chip',
-                          icon: FontAwesomeIcons.clock,
+                          icon: FontAwesomeIcons.circleNotch,
                           title: '${(2030 * index + 10) / index}',
                           subTitle: 'Expected Speed ',
-
                         ),
                       );
                     },
@@ -164,18 +161,102 @@ class _HomeScreenState extends State<MyHomeScreen> {
                     },
                   ),
                 ),
+                Container(
+                  height: 300,
+                  color: colors.backgroundColor,
+                  child: ListView.builder(
+                      itemCount: reportTitle.length,
+                      scrollDirection: Axis.vertical,
+                      itemBuilder: (context, index) {
+                        return Container(
+                          width: null,
+                          margin: const EdgeInsets.all(0.0),
+                          alignment: Alignment.center,
+                          child: Card(
+                            elevation: 0.5,
+                            child: mTransactions('transaction_widget',
+                            mDataDate: 'March $index 2019',
+                            mDataInfo: '-53.49',
+                            mTitle: 'Sony PlayStation ',
+                            subTitle: 'FIFA 2022 Game',),
+                          )
+                        );
+                      }),
+                ),
                 Card(
                     elevation: 0.0,
                     child: SizedBox(
                       height: 350,
-                      child: BucketingAxisScatterPlotChart.withSampleData(),
+                      child: Stack(
+                        alignment: Alignment.center,
+                        children: <Widget>[
+                          Positioned(
+                            top: 10,
+                            child: Card(
+                              elevation: 4,
+                              color: Color.fromARGB(255, 0, 0, 255),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10)),
+                              child: Container(
+                                width: 200,
+                                height: 300,
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            top: 20,
+                            child: Card(
+                              elevation: 8,
+                              color: Color.fromARGB(255, 0, 255, 0),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10)),
+                              child: Container(
+                                width: 220,
+                                height: 300,
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            top: 30,
+                            child: Card(
+                              elevation: 12,
+                              color: Color.fromARGB(255, 200, 0, 0),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10)),
+                              child: Container(
+                                width: 240,
+                                height: 300,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
                     )),
-                Card(
-                    elevation: 4.0,
-                    child: SizedBox(
-                      height: 350,
-                      child: NonzeroBoundMeasureAxis.withSampleData(),
-                    )),
+                Container(
+                  height: 200,
+                    child: ListView(
+                      padding: const EdgeInsets.all(10.0),
+                      children: <Widget>[
+                        LinearProgressWidget('',
+                          iconData: FontAwesomeIcons.user,
+                          linear_percent: 0.5,
+                          title: 'Flutter 1.0 Launch',
+                          subTitle: 'Flutter continues to its horizons.',
+                          author: 'Dash',
+                          publishDate: 'Dec 28',
+                          readDuration: '5 mins',
+                        ),
+                        LinearProgressWidget('',
+                          iconData: FontAwesomeIcons.circleNotch,
+                          linear_percent: 0.8,
+                          title: 'Flutter 1.2 release ',
+                          subTitle: 'Flutter once  updates.',
+                          author: 'Flutter',
+                          publishDate: 'Feb 26',
+                          readDuration: '12 mins',
+                        ),
+                      ],
+                    ),),
               ],
             ),
           ),
@@ -184,12 +265,13 @@ class _HomeScreenState extends State<MyHomeScreen> {
          * Navigation Drawer start here
          * **/
         drawer: Drawer(
-         child: mDrawerLayout(),
+          child: mDrawerLayout(),
         ),
         /**
          * Bottom navigation  start here **/
         bottomNavigationBar: AppBottomAppBar(
           'floating_action_button',
+
           child: new Row(
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[

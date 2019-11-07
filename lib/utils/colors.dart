@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' as prefix0;
 
 Color colorCurve = Color.fromRGBO(97, 10, 165, 0.8);
 Color colorCurveSecondary = Color.fromRGBO(97, 10, 155, 0.6);
@@ -17,3 +18,18 @@ Color bucketDialogueUserColor = Colors.red;
 Color disabledTextColour = Colors.black54;
 Color placeHolderColor = Colors.black26;
 Color dividerColor = Colors.black26;
+
+
+class Loginsty with Login ,Signup{
+
+}
+
+mixin Login{
+    List data = [
+      prefix0.TextStyle(),
+    ];
+}
+
+mixin Signup {
+
+}

@@ -18,3 +18,5 @@ export './widget_listile.dart';
 export './widget_data_cards.dart';
 export './widget_percentage.dart';
 export './widget_drawer_layout.dart';
+export './widget_transactions.dart';
+export './widget_bottom_progressbar.dart';

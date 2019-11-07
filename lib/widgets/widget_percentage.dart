@@ -33,7 +33,7 @@ class _PercentageWidgetState extends State<CircularPercentage> {
   @override
   Widget build(BuildContext context) {
     Screen size = Screen(MediaQuery.of(context).size);
-
+  Loginsty   l  = Loginsty();
 
     return new Card(
       elevation: widget.mElevetion,
