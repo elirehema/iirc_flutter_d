@@ -1,7 +1,7 @@
 import 'package:amala_statistics/utils/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:amala_statistics/utils/colors.dart' as colors;
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+
 
 class mTransactions extends StatefulWidget {
   final String mTitle, mDataInfo, mDataDate;
@@ -38,7 +38,7 @@ class _TransactionsWidgetState extends State<mTransactions> {
                 radius: 30,
 
                 backgroundColor: Colors.white,
-                child: new Icon(FontAwesomeIcons.chartBar, color: Colors.pinkAccent,),
+                child: new Icon(MdiIcons.chartBarStacked, color: Colors.pinkAccent,),
               ),
               title: Text(
                 widget.mTitle,

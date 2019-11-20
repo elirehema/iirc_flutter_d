@@ -1,6 +1,5 @@
 import 'package:amala_statistics/screens/ChartScreens/BucketingAxisScatterPlotChart.dart';
 import 'package:amala_statistics/screens/ChartScreens/index.dart';
-import 'package:amala_statistics/screens/index.dart';
 import 'package:amala_statistics/widgets/index.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:backdrop/backdrop.dart';
@@ -169,18 +168,19 @@ class _HomeScreenState extends State<MyHomeScreen> {
                       scrollDirection: Axis.vertical,
                       itemBuilder: (context, index) {
                         return Container(
-                          width: null,
-                          margin: const EdgeInsets.all(0.0),
-                          alignment: Alignment.center,
-                          child: Card(
-                            elevation: 0.5,
-                            child: mTransactions('transaction_widget',
-                            mDataDate: 'March $index 2019',
-                            mDataInfo: '-53.49',
-                            mTitle: 'Sony PlayStation ',
-                            subTitle: 'FIFA 2022 Game',),
-                          )
-                        );
+                            width: null,
+                            margin: const EdgeInsets.all(0.0),
+                            alignment: Alignment.center,
+                            child: Card(
+                              elevation: 0.5,
+                              child: mTransactions(
+                                'transaction_widget',
+                                mDataDate: 'March $index 2019',
+                                mDataInfo: '-53.49',
+                                mTitle: 'Sony PlayStation ',
+                                subTitle: 'FIFA 2022 Game',
+                              ),
+                            ));
                       }),
                 ),
                 Card(
@@ -234,29 +234,32 @@ class _HomeScreenState extends State<MyHomeScreen> {
                     )),
                 Container(
                   height: 200,
-                    child: ListView(
-                      padding: const EdgeInsets.all(10.0),
-                      children: <Widget>[
-                        LinearProgressWidget('',
-                          iconData: FontAwesomeIcons.user,
-                          linear_percent: 0.5,
-                          title: 'Flutter 1.0 Launch',
-                          subTitle: 'Flutter continues to its horizons.',
-                          author: 'Dash',
-                          publishDate: 'Dec 28',
-                          readDuration: '5 mins',
-                        ),
-                        LinearProgressWidget('',
-                          iconData: FontAwesomeIcons.circleNotch,
-                          linear_percent: 0.8,
-                          title: 'Flutter 1.2 release ',
-                          subTitle: 'Flutter once  updates.',
-                          author: 'Flutter',
-                          publishDate: 'Feb 26',
-                          readDuration: '12 mins',
-                        ),
-                      ],
-                    ),),
+                  child: ListView(
+                    padding: const EdgeInsets.all(10.0),
+                    children: <Widget>[
+                      LinearProgressWidget(
+                        '',
+                        iconData: FontAwesomeIcons.user,
+                        linear_percent: 0.5,
+                        title: 'Flutter 1.0 Launch',
+                        subTitle: 'Flutter continues to its horizons.',
+                        author: 'Dash',
+                        publishDate: 'Dec 28',
+                        readDuration: '5 mins',
+                      ),
+                      LinearProgressWidget(
+                        '',
+                        iconData: FontAwesomeIcons.circleNotch,
+                        linear_percent: 0.8,
+                        title: 'Flutter 1.2 release ',
+                        subTitle: 'Flutter once  updates.',
+                        author: 'Flutter',
+                        publishDate: 'Feb 26',
+                        readDuration: '12 mins',
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
@@ -271,31 +274,23 @@ class _HomeScreenState extends State<MyHomeScreen> {
          * Bottom navigation  start here **/
         bottomNavigationBar: AppBottomAppBar(
           'floating_action_button',
-
-          child: new Row(
-            mainAxisSize: MainAxisSize.max,
-            children: <Widget>[
-              IconButton(
-                icon: Icon(Icons.menu, color: Colors.white),
-                onPressed: () {
-                  _scaffoldKey.currentState.openDrawer();
-                },
-              ),
-              IconButton(
-                icon: Icon(Icons.settings_applications, color: Colors.white),
-                onPressed: () {},
-              ),
-            ],
-          ),
+          key: UniqueKey(),
+          color: Colors.blue[500],
+          notchMargin: 2.0,
+          elevetion: 0.0,
+          scaffoldKey: _scaffoldKey,
         ),
+
         /**
-         * Floating Action Button Start here */
+         * Floating Action Button Start here *
         floatingActionButton: AppFloatingActionButton(
             'app_floating_action_button', onPressed: () {
           Navigator.push(context,
               new MaterialPageRoute(builder: (context) => new SettingPage()));
         }, tooltip: 'Increment Counter', child: Icon(Icons.settings)),
-        floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        **/
+
       ),
       iconPosition: BackdropIconPosition.leading,
       actions: <Widget>[

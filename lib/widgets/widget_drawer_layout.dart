@@ -7,7 +7,6 @@ class mDrawerLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return ListView(
       padding: EdgeInsets.zero,
       children: <Widget>[
@@ -75,7 +74,9 @@ class mDrawerLayout extends StatelessWidget {
           subTitle: _lorem,
           disabled: false,
           icon: Icons.help_outline,
-          onTap: () {},
+          onTap: () {
+            Navigator.pushNamed(context, '/help');
+          },
         ),
         ListTileWidget(
           'nav_settings',
