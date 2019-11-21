@@ -4,6 +4,13 @@ import 'package:flutter/material.dart';
 import '../items_widget/read_more_text.dart';
 
 class HelpScreen extends StatelessWidget{
+  final String lorem = 'Lorem ipsum dolor sit amet,'+
+  'consectetur adipiscing elit, sed do eiusmod tempor incididunt '+
+  'ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis '+
+  'nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'+
+  ' Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur'+
+   'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est'+
+    'laborum';
   @override
  Widget build(BuildContext context) {
     return Scaffold(
@@ -20,48 +27,7 @@ class HelpScreen extends StatelessWidget{
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: ReadMoreText(
-                  'Flutter is Google’s mobile UI open source framework to build high-quality native (super fast) interfaces for iOS and Android apps with the unified codebase.',
-                  trimLines: 2,
-                  colorClickableText: Colors.pink,
-                  trimMode: TrimMode.Line,
-                  trimCollapsedText: '...Show more',
-                  trimExpandedText: ' show less',
-                ),
-              ),
-              Divider(
-                color: const Color(0xFF167F67),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: ReadMoreText(
-                  'Flutter has its own UI components, along with an engine to render them on both the Android and iOS platforms. Most of those UI components, right out of the box, conform to the guidelines of Material Design.',
-                  trimLines: 3,
-                  colorClickableText: Colors.pink,
-                  trimMode: TrimMode.Line,
-                  trimCollapsedText: '...Expand',
-                  trimExpandedText: ' Collapse ',
-                ),
-              ),
-
-              Divider(
-                color: const Color(0xFF167F67),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: ReadMoreText(
-                  'The Flutter framework builds its layout via the composition of widgets, everything that you construct programmatically is a widget and these are compiled together to create the user interface. ',
-                  trimLines: 2,
-                  colorClickableText: Colors.pink,
-                  trimMode: TrimMode.Line,
-                  trimCollapsedText: '...Read more',
-                  trimExpandedText: ' Less',
-                ),
-              ),
-            ],
+            children: _createChildren(lorem)
           ),
         ),
       ),
@@ -69,3 +35,27 @@ class HelpScreen extends StatelessWidget{
   }
   
 }
+
+List<int> someList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  List<Widget> _createChildren( String text) {
+    return new List<Widget>.generate(10, (int index) {
+      return Column(
+        children: <Widget>[
+           Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: ReadMoreText(
+                  text,
+                  trimLines: 3,
+                  colorClickableText: Colors.pink,
+                  trimMode: TrimMode.Line,
+                  trimCollapsedText: '...Read more',
+                  trimExpandedText: ' Less',
+                ),
+              ),
+               Divider(
+                color: const Color(0xFF167F67),
+              ),
+        ],
+      );
+    });
+  }
