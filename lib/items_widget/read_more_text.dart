@@ -1,4 +1,3 @@
-
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -117,15 +116,14 @@ class ReadMoreTextState extends State<ReadMoreText> {
         // Get the endIndex of data
         bool linkLongerThanLine = false;
         int endIndex;
-       
+
         if (linkSize.width < maxWidth) {
           final pos = textPainter.getPositionForOffset(Offset(
             textSize.width - linkSize.width,
             textSize.height,
           ));
           endIndex = textPainter.getOffsetBefore(pos.offset);
-        } 
-        else {
+        } else {
           var pos = textPainter.getPositionForOffset(
             textSize.bottomLeft(Offset.zero),
           );
