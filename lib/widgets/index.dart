@@ -21,3 +21,4 @@ export './widget_drawer_layout.dart';
 export './widget_transactions.dart';
 export './widget_bottom_progressbar.dart';
 export './widget_custom_icon_button.dart';
+export './widget_page_selector.dart';

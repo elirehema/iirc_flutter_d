@@ -1,4 +1,3 @@
-import 'package:amala_statistics/utils/responsive_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:amala_statistics/utils/index.dart' as colors;
@@ -13,6 +12,8 @@ class DataCard extends StatefulWidget{
   final IconData icon, textIcon;
   final GestureTapCallback onTap;
   final bool disabled;
+  final ShapeBorder shapeBorder;
+  final double elevetion;
 
   const DataCard(
       String s, {
@@ -25,6 +26,8 @@ class DataCard extends StatefulWidget{
         this.onTap,
         this.backgroundColor,
         this.disabled,
+         this.shapeBorder, 
+         this.elevetion,
       }) : super(key: key);
 
 
@@ -36,10 +39,11 @@ class DataCard extends StatefulWidget{
 class _DataCardsWidgetState extends State<DataCard>{
   @override
   Widget build(BuildContext context) {
-    Screen size = Screen(MediaQuery.of(context).size);
+    var size = MediaQuery.of(context).size;
     return new   Container(
-      width: 130,
+      width: size.width * 0.5,
       child: Card(
+        shape: widget.shapeBorder,
         color: colors.textPrimaryLightColor,
         elevation: 1.0,
         child: Column(

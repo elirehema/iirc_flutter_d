@@ -1,6 +1,7 @@
 import 'package:amala_statistics/screens/ChartScreens/BucketingAxisScatterPlotChart.dart';
 import 'package:amala_statistics/screens/ChartScreens/index.dart';
 import 'package:amala_statistics/widgets/index.dart';
+import 'package:amala_statistics/widgets/widget_custom_row.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:backdrop/backdrop.dart';
 import 'package:flutter/material.dart';
@@ -90,7 +91,152 @@ class _HomeScreenState extends State<MyHomeScreen> {
         body: Center(
           child: new Container(
             color: colors.backgroundColor,
-            child: ListView(
+            child: CustomPageSelectorExample(
+              childWidgets: <Widget>[
+                CustomRow('_s',
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                widgetList: <Widget>[
+                  Expanded(
+                   child: Container(
+                  child: ListView.builder(
+                    itemCount: reportTitle.length,
+                    scrollDirection: Axis.vertical,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        width: null,
+                        margin: const EdgeInsets.all(0.0),
+                        alignment: Alignment.center,
+                        child: DataCard(
+                          'chip',
+                          icon: FontAwesomeIcons.circleNotch,
+                          title: '${(2030 * index + 10) / index}',
+                          subTitle: 'Expected Speed ',
+                        ),
+                      );
+                    },
+                  ),
+                ),
+                ),
+                Expanded(
+                child: Container(
+                  child: ListView.builder(
+                    itemCount: reportTitle.length,
+                    scrollDirection: Axis.vertical,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        width: null,
+                        margin: const EdgeInsets.all(0.0),
+                        alignment: Alignment.center,
+                        child: CircularPercentage(
+                          'circular_percentage',
+                          percentage: 0.0833 * index,
+                          title: '${0.5 * index} %',
+                          radius: 100.0,
+                          lineWidth: 13.0,
+                          footer: 'Expected Sales',
+                        ),
+                      );
+                    },
+                  ),
+                ),),
+                ],),
+                 Container(
+                  height: 300,
+                  color: colors.backgroundColor,
+                  child: ListView.builder(
+                      itemCount: reportTitle.length,
+                      scrollDirection: Axis.vertical,
+                      itemBuilder: (context, index) {
+                        return Container(
+                            width: null,
+                            margin: const EdgeInsets.all(0.0),
+                            alignment: Alignment.center,
+                            child: Card(
+                              elevation: 0.5,
+                              child: mTransactions(
+                                'transaction_widget',
+                                mDataDate: 'March $index 2019',
+                                mDataInfo: '-53.49',
+                                mTitle: 'Sony PlayStation ',
+                                subTitle: 'FIFA 2022 Game',
+                              ),
+                            ));
+                      }),
+                ),
+                Container(
+                  height: 200,
+                  child: ListView(
+                    padding: const EdgeInsets.all(10.0),
+                    children: <Widget>[
+                      LinearProgressWidget(
+                        '',
+                        iconData: FontAwesomeIcons.user,
+                        linear_percent: 0.5,
+                        title: 'Flutter 1.0 Launch',
+                        subTitle: 'Flutter continues to its horizons.',
+                        author: 'Dash',
+                        publishDate: 'Dec 28',
+                        readDuration: '5 mins',
+                      ),
+                      LinearProgressWidget(
+                        '',
+                        iconData: FontAwesomeIcons.circleNotch,
+                        linear_percent: 0.8,
+                        title: 'Flutter 1.2 release ',
+                        subTitle: 'Flutter once  updates.',
+                        author: 'Flutter',
+                        publishDate: 'Feb 26',
+                        readDuration: '12 mins',
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            )
+          ),
+        ),
+        /**
+         * Navigation Drawer start here
+         * **/
+        drawer: Drawer(
+          child: mDrawerLayout(),
+        ),
+        /**
+         * Bottom navigation  start here **/
+        bottomNavigationBar: AppBottomAppBar(
+          'floating_action_button',
+          key: UniqueKey(),
+          color: Colors.blue[500],
+          notchMargin: 2.0,
+          elevetion: 0.0,
+          scaffoldKey: _scaffoldKey,
+        ),
+
+        /**
+         * Floating Action Button Start here *
+        floatingActionButton: AppFloatingActionButton(
+            'app_floating_action_button', onPressed: () {
+          Navigator.push(context,
+              new MaterialPageRoute(builder: (context) => new SettingPage()));
+        }, tooltip: 'Increment Counter', child: Icon(Icons.settings)),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        **/
+
+      ),
+      iconPosition: BackdropIconPosition.leading,
+      actions: <Widget>[
+        BackdropToggleButton(
+          icon: AnimatedIcons.list_view,
+        ),
+      ],
+    );
+  }
+}
+/** 
+
+ ListView(
               scrollDirection: Axis.vertical,
               children: <Widget>[
                 Container(
@@ -262,42 +408,5 @@ class _HomeScreenState extends State<MyHomeScreen> {
                 ),
               ],
             ),
-          ),
-        ),
-        /**
-         * Navigation Drawer start here
-         * **/
-        drawer: Drawer(
-          child: mDrawerLayout(),
-        ),
-        /**
-         * Bottom navigation  start here **/
-        bottomNavigationBar: AppBottomAppBar(
-          'floating_action_button',
-          key: UniqueKey(),
-          color: Colors.blue[500],
-          notchMargin: 2.0,
-          elevetion: 0.0,
-          scaffoldKey: _scaffoldKey,
-        ),
 
-        /**
-         * Floating Action Button Start here *
-        floatingActionButton: AppFloatingActionButton(
-            'app_floating_action_button', onPressed: () {
-          Navigator.push(context,
-              new MaterialPageRoute(builder: (context) => new SettingPage()));
-        }, tooltip: 'Increment Counter', child: Icon(Icons.settings)),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        **/
-
-      ),
-      iconPosition: BackdropIconPosition.leading,
-      actions: <Widget>[
-        BackdropToggleButton(
-          icon: AnimatedIcons.list_view,
-        ),
-      ],
-    );
-  }
-}
+            **/
