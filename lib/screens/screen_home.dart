@@ -1,5 +1,6 @@
 import 'package:amala_statistics/screens/ChartScreens/BucketingAxisScatterPlotChart.dart';
 import 'package:amala_statistics/screens/ChartScreens/index.dart';
+import 'package:amala_statistics/screens/index.dart';
 import 'package:amala_statistics/widgets/index.dart';
 import 'package:amala_statistics/widgets/widget_custom_row.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -193,6 +194,7 @@ class _HomeScreenState extends State<MyHomeScreen> {
                     ],
                   ),
                 ),
+                ScreenUserPosts(),
               ],
             )
           ),
