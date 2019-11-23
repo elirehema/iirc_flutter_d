@@ -1,4 +1,4 @@
-# iirc_flutter_d
+# iirc_flutter_d  [![Build Status](https://travis-ci.com/elirehema/iirc_flutter_d.svg?branch=master)](https://travis-ci.com/elirehema/iirc_flutter_d)
 Created with flutter
 
 One Paragraph of project description goes here
