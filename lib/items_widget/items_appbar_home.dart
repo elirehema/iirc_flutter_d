@@ -51,6 +51,8 @@ class _ItemsAppBarHomeWidgetState extends State<ItemsAppBarHome> {
                 edgeInsetsGeometry: const EdgeInsets.all(2.0),
                 alignmentGeometry: Alignment.center,
                 onPressed: () {
+                  Navigator.push(context,
+              new MaterialPageRoute(builder: (context) => new UserProfileScreen()));
                 },
               ),
               CustomIconButton(
