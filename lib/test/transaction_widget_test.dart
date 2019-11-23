@@ -10,19 +10,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-
+String title = 'Transaction Widget';
+String subTitle = 'Transaction subtitle';
   Widget testWidget = new MediaQuery(
       data: new MediaQueryData(),
       child: new MaterialApp(home: new Transactions('s', 
        mDataInfo: 'Date',
-    mTitle: 'Transaction Widget',
-    subTitle: 'Transaction subtitle',
+    mTitle: title,
+    subTitle: subTitle,
     iconData: Icons.event_note,
     key: UniqueKey(),))
 );
   testWidgets('Transaction Widget test', (WidgetTester tester) async {
     // Build Transaction widget.
     await tester.pumpWidget(testWidget);
+
+    // Find a widget that displays the letter 'H'.
+  expect(find.text(title), findsOneWidget);
+  expect(find.text(subTitle), findsOneWidget);
   
   });
 }
