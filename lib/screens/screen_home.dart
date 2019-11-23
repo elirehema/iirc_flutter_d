@@ -156,7 +156,7 @@ class _HomeScreenState extends State<MyHomeScreen> {
                             alignment: Alignment.center,
                             child: Card(
                               elevation: 0.5,
-                              child: mTransactions(
+                              child: Transactions(
                                 'transaction_widget',
                                 mDataDate: 'March $index 2019',
                                 mDataInfo: '-53.49',

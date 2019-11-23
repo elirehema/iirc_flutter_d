@@ -8,7 +8,6 @@ class UserProfileScreen extends StatelessWidget{
   String lorem = 'A widget test is therefore more comprehensive than a unit test. However, like a unit test, a widget test’s environment is replaced with an implementation';
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       appBar: AppBar(
         title: Text('My Profile'),

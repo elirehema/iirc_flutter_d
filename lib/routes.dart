@@ -26,13 +26,14 @@ class Routes {
 
 class MyApp extends StatelessWidget{
   final routes = <String, WidgetBuilder>{
-      '/HomeScreen': (BuildContext context) => new  HomeScreen(),
-      '/LoginScreen': (BuildContext context) => new  Login(),
-      '/GaugeScreen': (BuildContext context) => new GroupedStackedWeightPatternBarChart.withSampleData(),
-      '/settings': (BuildContext context) => new SettingPage(),
-      '/payments': (BuildContext context) => new MyHomePage(title: 'Home Page',),
-      '/help': (BuildContext context)=> new HelpScreen(),
-      '/route_profile':(BuildContext context)=>UserProfileScreen(),
+      '/': (BuildContext context) =>   Login(),
+      '/HomeScreen': (BuildContext context) => HomeScreen(),
+      '/LoginScreen': (BuildContext context) =>   Login(),
+      '/GaugeScreen': (BuildContext context) => GroupedStackedWeightPatternBarChart.withSampleData(),
+      '/settings': (BuildContext context) => SettingPage(),
+      '/payments': (BuildContext context) =>  MyHomePage(title: 'Home Page',),
+      '/help': (BuildContext context)=>  HelpScreen(),
+      '/route_profile':(BuildContext context)=> UserProfileScreen(),
     };
   @override
   Widget build(BuildContext context) {
