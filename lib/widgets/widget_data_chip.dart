@@ -22,7 +22,8 @@ class _ChipWidgetState extends State<ChipWidget> {
   Widget build(BuildContext context) {
 
   
-    return Badge(
+    return Material(
+      child: Badge(
       badgeContent: Text(widget.valueText, style: TextStyle(color: Colors.white),),
       position: BadgePosition.topLeft(top: -8, left: 30),
       shape: BadgeShape.square,
@@ -30,14 +31,15 @@ class _ChipWidgetState extends State<ChipWidget> {
       child:  Chip(
         avatar: CircleAvatar(
           backgroundColor: Colors.blue[8 * 100],
-          child: Text('${widget.nameText[0].toUpperCase()}'),
+          child: Text('${widget.nameText[0].toUpperCase() ?? ''}', textDirection: TextDirection.ltr,),
         ),
         backgroundColor: Colors.blue[900],
         padding: EdgeInsets.all(0),
-        label: Text(widget.nameText, style: TextStyle(color: Colors.white)),
+        label: Text(widget.nameText, style: TextStyle(color: Colors.white), textDirection: TextDirection.ltr,),
         elevation: 2.0,
         shadowColor: Colors.green[800],
       ),
+    ),
     );
   }
 
