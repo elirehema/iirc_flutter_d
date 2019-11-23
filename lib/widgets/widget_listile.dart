@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class ListTileWidget extends StatefulWidget {
   final String title;
   final String subTitle;
-  final Colors iconColor;
+  final Color iconColor;
   final Color backgroundColor;
   final IconData icon;
   final GestureTapCallback onTap;
