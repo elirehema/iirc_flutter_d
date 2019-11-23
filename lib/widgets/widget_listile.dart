@@ -16,7 +16,7 @@ class ListTileWidget extends StatefulWidget {
     Key key,
     this.iconColor,
     this.subTitle,
-    this.title,
+    @required this.title,
     this.icon,
     this.onTap,
     this.backgroundColor,
