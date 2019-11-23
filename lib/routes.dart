@@ -32,6 +32,7 @@ class MyApp extends StatelessWidget{
       '/settings': (BuildContext context) => new SettingPage(),
       '/payments': (BuildContext context) => new MyHomePage(title: 'Home Page',),
       '/help': (BuildContext context)=> new HelpScreen(),
+      '/route_profile':(BuildContext context)=>UserProfileScreen(),
     };
   @override
   Widget build(BuildContext context) {
