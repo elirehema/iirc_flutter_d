@@ -20,7 +20,7 @@ class CustomIconButton extends StatefulWidget {
     this.hoverColor,
     this.splashColor,
     this.disabledColor,
-    this.iconsize,
+   @required this.iconsize,
     this.edgeInsetsGeometry,
     this.alignmentGeometry,
     this.focusNode,
@@ -36,7 +36,8 @@ class CustomIconButton extends StatefulWidget {
 class _CustomIconButtonWidgetState extends State<CustomIconButton> {
   @override
   Widget build(BuildContext context) {
-    return IconButton(
+    return Material(
+      child: IconButton(
       iconSize: widget.iconsize,
       padding: widget.edgeInsetsGeometry,
       alignment: widget.alignmentGeometry,
@@ -50,6 +51,7 @@ class _CustomIconButtonWidgetState extends State<CustomIconButton> {
       splashColor: widget.splashColor,
       disabledColor: widget.disabledColor,
       focusColor: widget.focusColor,
+    ),
 
     );
   }
