@@ -1,6 +1,6 @@
+import 'package:amala_statistics/widgets/index.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:percent_indicator/percent_indicator.dart';
 
 class LinearProgressWidget extends StatefulWidget {
   final String mTitle, mDataInfo, mDataDate;
@@ -14,6 +14,7 @@ class LinearProgressWidget extends StatefulWidget {
   final String readDuration;
   final String author;
   final double linear_percent;
+  final Widget descriptioWidget;
 
   LinearProgressWidget(
     String s, {
@@ -31,6 +32,7 @@ class LinearProgressWidget extends StatefulWidget {
     this.publishDate,
     this.readDuration,
     this.linear_percent,
+    this.descriptioWidget
   }) : super(key: key);
 
   State<StatefulWidget> createState() => _ProgressWidgetState();
@@ -62,14 +64,7 @@ class _ProgressWidgetState extends State<LinearProgressWidget> {
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(20.0, 0.0, 2.0, 0.0),
-                  child: _ArticleDescription(
-                    title: widget.title,
-                    subtitle: widget.subTitle,
-                    author: widget.author,
-                    publishDate: widget.publishDate,
-                    readDuration: widget.readDuration,
-                    percentage: widget.linear_percent,
-                  ),
+                  child: widget.descriptioWidget,
                 ),
               )
             ],
@@ -80,108 +75,3 @@ class _ProgressWidgetState extends State<LinearProgressWidget> {
   }
 }
 
-class _ArticleDescription extends StatelessWidget {
-  _ArticleDescription({
-    Key key,
-    this.title,
-    this.subtitle,
-    this.author,
-    this.publishDate,
-    this.readDuration,
-    this.percentage,
-  }) : super(key: key);
-
-  final String title;
-  final String subtitle;
-  final String author;
-  final String publishDate;
-  final String readDuration;
-  final double percentage;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Expanded(
-          flex: 2,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Row(
-                children: <Widget>[
-                  Expanded(
-                    flex: 3,
-                    child: ListTile(
-                      title: Text(
-                        title,
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      subtitle: Text(subtitle),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 2,
-                    child: ListTile(
-                      title: Text(
-                        "53.49",
-                        textAlign: TextAlign.end,
-                        style: TextStyle(
-                            color: Colors.redAccent,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      subtitle: Text(
-                        "23.67",
-                        textAlign: TextAlign.end,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              const Padding(padding: EdgeInsets.only(bottom: 2.0)),
-              LinearPercentIndicator(
-                lineHeight: 6.0,
-                percent: percentage,
-                animation: true,
-                backgroundColor: Colors.lightGreenAccent,
-                progressColor: Colors.deepPurple,
-              ),
-            ],
-          ),
-        ),
-        /*Expanded(
-          flex: 1,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[
-
-              Text(
-                '$author',
-                style: const TextStyle(
-                  fontSize: 12.0,
-                  color: Colors.black87,
-                ),
-              ),
-              Text(
-                '$publishDate · $readDuration ★',
-                style: const TextStyle(
-                  fontSize: 12.0,
-                  color: Colors.black54,
-                ),
-              ),
-              LinearPercentIndicator(
-                lineHeight: 6.0,
-                percent: percentage,
-                animation: true,
-                backgroundColor: Colors.lightGreenAccent,
-                progressColor: Colors.deepPurple,
-              ),
-            ],
-          ),
-        ),*/
-      ],
-    );
-  }
-}

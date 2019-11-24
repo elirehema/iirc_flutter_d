@@ -50,7 +50,7 @@ class SwitchRow extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.only(
                         right: size.getWidthPx(12), left: size.getWidthPx(12)),
-                    child: Text(label,
+                    child: Text(label ?? '', 
                         style: TextStyle(
                             fontFamily: 'Exo2',
                             fontSize: 14.0,

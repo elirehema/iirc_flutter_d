@@ -12,8 +12,8 @@ class CustomRow extends StatefulWidget {
   CustomRow(String _s,
       {Key key,
       this.widgetList,
-      this.crossAxisAlignment,
-      this.mainAxisAlignment,
+      @required this.crossAxisAlignment,
+      @required this.mainAxisAlignment,
       this.mainAxisSize,
       this.textDirection,
       this.verticalDirection,
@@ -35,6 +35,14 @@ class _CustomRowWidgetState extends State<CustomRow> {
         mainAxisSize: widget.mainAxisSize,
         textBaseline: widget.textBaseline,
         textDirection: widget.textDirection,
-        children: widget.widgetList);
+        children: widget.widgetList,
+        /*children:<Widget>[
+          for(var widg in widget.widgetList) Expanded(
+            key: UniqueKey(),
+            flex: 1,
+            child: widg,
+          )
+        ] */
+        );
   }
 }
