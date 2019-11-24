@@ -26,7 +26,6 @@ class Routes {
 
 class MyApp extends StatelessWidget{
   final routes = <String, WidgetBuilder>{
-      '/': (BuildContext context) =>   Login(),
       '/HomeScreen': (BuildContext context) => HomeScreen(),
       '/LoginScreen': (BuildContext context) =>   Login(),
       '/GaugeScreen': (BuildContext context) => GroupedStackedWeightPatternBarChart.withSampleData(),
