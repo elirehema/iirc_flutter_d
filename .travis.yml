@@ -13,13 +13,9 @@ addons:
 before_script:
   - git clone https://github.com/flutter/flutter.git -b beta
   - ./flutter/bin/flutter doctor
-  - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
-  - emulator -avd test -no-skin -no-audio -no-window &
-  - android-wait-for-emulator
-  - adb shell input keyevent 82 &
-script:
   - ./flutter/bin/flutter run
-  - ./flutter/bin/flutter doctor
+script:
+ 
   - ./flutter/bin/flutter test lib
 cache:
   directories:
