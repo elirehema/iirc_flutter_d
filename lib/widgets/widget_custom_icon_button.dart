@@ -5,9 +5,6 @@ class CustomIconButton extends StatefulWidget {
   final String tooltip;
   final Widget icon;
   final Color color, focusColor,highlightColor, hoverColor, splashColor, disabledColor;
-  final double iconsize;
-  final EdgeInsetsGeometry edgeInsetsGeometry;
-  final AlignmentGeometry alignmentGeometry;
   final FocusNode focusNode;
   final bool autofocus;
 
@@ -20,9 +17,6 @@ class CustomIconButton extends StatefulWidget {
     this.hoverColor,
     this.splashColor,
     this.disabledColor,
-   @required this.iconsize,
-    this.edgeInsetsGeometry,
-    this.alignmentGeometry,
     this.focusNode,
     this.autofocus,
     this.highlightColor,
@@ -37,12 +31,9 @@ class _CustomIconButtonWidgetState extends State<CustomIconButton> {
   @override
   Widget build(BuildContext context) {
     return Material(
+      color: Colors.transparent,
       child: IconButton(
-      iconSize: widget.iconsize,
-      padding: widget.edgeInsetsGeometry,
-      alignment: widget.alignmentGeometry,
       icon: widget.icon,
-
       highlightColor: widget.highlightColor,
       tooltip: widget.tooltip,
       onPressed: widget.onPressed,

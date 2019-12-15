@@ -6,7 +6,7 @@ import '../items_widget/items_appbar_home.dart';
 class AppBottomAppBar extends StatefulWidget{
     final GlobalKey<ScaffoldState> scaffoldKey;
   final Widget child;
-  final Color color;
+  final Color color, iconColor;
   final Clip clipbehaviour;
   final double notchMargin;
   final double elevetion;
@@ -16,6 +16,7 @@ class AppBottomAppBar extends StatefulWidget{
     Key key,
     this.child,
     this.color,
+    this.iconColor,
     this.clipbehaviour,
     this.notchMargin,
     this.elevetion,
@@ -33,12 +34,14 @@ class _BottomAppBarWidgetState extends State<AppBottomAppBar>{
     return BottomAppBar(
       child: ItemsAppBarHome(
       'string_this',
+      iconColor: widget.iconColor,
       scaffoldKey: widget.scaffoldKey),
       shape: CircularNotchedRectangle(),
       color: widget.color,
       clipBehavior: Clip.hardEdge,
       notchMargin: widget.notchMargin,
       elevation: widget.elevetion,
+      
       
       
     );

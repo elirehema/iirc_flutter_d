@@ -210,9 +210,10 @@ class _HomeScreenState extends State<MyHomeScreen> {
         bottomNavigationBar: AppBottomAppBar(
           'floating_action_button',
           key: UniqueKey(),
-          color: Colors.blue[500],
+          color: Colors.blueGrey[100],
           notchMargin: 2.0,
           elevetion: 0.0,
+          iconColor: Colors.blueGrey,
           scaffoldKey: _scaffoldKey,
         ),
 
