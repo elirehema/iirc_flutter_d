@@ -13,10 +13,7 @@ void main() {
           home: new  CustomIconButton(
             tooltip: title,
             icon: new Icon(Icons.mobile_screen_share),
-            iconsize: 24.0,
             onPressed: null,
-            edgeInsetsGeometry: const EdgeInsets.all(2.0),
-            alignmentGeometry: Alignment(0.0, 0.0),
           ) ));
 
 
