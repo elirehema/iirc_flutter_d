@@ -4,11 +4,11 @@ import '../screens/index.dart';
 import '../widgets/widget_custom_icon_button.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-class ItemsAppBarHome extends StatefulWidget {
+class CBottomNavigationBar extends StatefulWidget {
   final GlobalKey<ScaffoldState> scaffoldKey;
   final Color iconColor;
 
-  const ItemsAppBarHome(
+  const CBottomNavigationBar(
     String s, {
     Key key,
     this.scaffoldKey,
@@ -19,7 +19,7 @@ class ItemsAppBarHome extends StatefulWidget {
   State<StatefulWidget> createState() => _ItemsAppBarHomeWidgetState();
 }
 
-class _ItemsAppBarHomeWidgetState extends State<ItemsAppBarHome> {
+class _ItemsAppBarHomeWidgetState extends State<CBottomNavigationBar> {
   @override
   Widget build(BuildContext context) {
     return CustomRow(
