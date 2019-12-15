@@ -33,25 +33,19 @@ class _BottomAppBarWidgetState extends State<AppBottomAppBar>{
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return BottomAppBar(
-    child:  new Container(
-    decoration: new BoxDecoration(
-      color: widget.color,
-      borderRadius: new BorderRadius.vertical(
-          top: new Radius.elliptical(10.0, 10.0)),
-    ),
-  
-      child: ItemsAppBarHome(
+   
+     child: CBottomNavigationBar(
       'string_this',
       iconColor: widget.iconColor,
       scaffoldKey: widget.scaffoldKey
       ),
-      
-      ),
       shape: CircularNotchedRectangle(),
-      color:Colors.transparent,
-      clipBehavior: Clip.hardEdge,
-      notchMargin: widget.notchMargin,
+      color:Colors.white,
+      clipBehavior: Clip.antiAlias,
+      notchMargin: 2.0,
       elevation: widget.elevetion,
+      
+      
       
     );
     

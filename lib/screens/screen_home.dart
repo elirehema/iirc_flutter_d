@@ -205,6 +205,14 @@ class _HomeScreenState extends State<MyHomeScreen> {
         drawer: Drawer(
           child: mDrawerLayout(),
         ),
+        floatingActionButton: FloatingActionButton(
+        onPressed: null,
+        elevation: 0.0,
+        tooltip: 'Increment',
+        mini: true,
+        child: Icon(Icons.add),
+        
+      ),
         /**
          * Bottom navigation  start here **/
         bottomNavigationBar: AppBottomAppBar(
@@ -216,6 +224,7 @@ class _HomeScreenState extends State<MyHomeScreen> {
           iconColor: Colors.blueGrey,
           scaffoldKey: _scaffoldKey,
         ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
 
         /**
          * Floating Action Button Start here *
