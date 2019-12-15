@@ -73,7 +73,7 @@ class _HomeScreenState extends State<MyHomeScreen> {
   @override
   Widget build(BuildContext context) {
     return new BackdropScaffold(
-      title: Text("Backdrop Example"),
+      title: Text("Amala Statistcis"),
       backLayer: Center(
           child: ListView.builder(
               padding: const EdgeInsets.all(2.0),
@@ -174,7 +174,7 @@ class _HomeScreenState extends State<MyHomeScreen> {
                       LinearProgressWidget(
                         '',
                         iconData: FontAwesomeIcons.user,
-                        linear_percent: 0.5,
+                        linearPercent: 0.5,
                         title: 'Flutter 1.0 Launch',
                         subTitle: 'Flutter continues to its horizons.',
                         author: 'Dash',
@@ -184,7 +184,7 @@ class _HomeScreenState extends State<MyHomeScreen> {
                       LinearProgressWidget(
                         '',
                         iconData: FontAwesomeIcons.circleNotch,
-                        linear_percent: 0.8,
+                        linearPercent: 0.8,
                         title: 'Flutter 1.2 release ',
                         subTitle: 'Flutter once  updates.',
                         author: 'Flutter',

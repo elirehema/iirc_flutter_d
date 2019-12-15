@@ -1,4 +1,4 @@
-import 'package:amala_statistics/widgets/index.dart';
+import 'package:amala_statistics/widgets/widget_article_description.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +13,7 @@ class LinearProgressWidget extends StatefulWidget {
   final String publishDate;
   final String readDuration;
   final String author;
-  final double linear_percent;
+  final double linearPercent;
   final Widget descriptioWidget;
 
   LinearProgressWidget(
@@ -31,7 +31,7 @@ class LinearProgressWidget extends StatefulWidget {
     this.author,
     this.publishDate,
     this.readDuration,
-    this.linear_percent,
+    this.linearPercent,
     this.descriptioWidget
   }) : super(key: key);
 
@@ -64,7 +64,12 @@ class _ProgressWidgetState extends State<LinearProgressWidget> {
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(20.0, 0.0, 2.0, 0.0),
-                  child: widget.descriptioWidget,
+                  child: ArticleDescription(
+                    author: widget.author,
+                    title: widget.title,
+                    subtitle: widget.subTitle,
+                    percentage: widget.linearPercent,
+                  ),
                 ),
               )
             ],

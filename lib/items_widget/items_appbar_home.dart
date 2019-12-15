@@ -25,40 +25,28 @@ class _ItemsAppBarHomeWidgetState extends State<ItemsAppBarHome> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             widgetList: <Widget>[
-              CustomIconButton(
+              IconButton(
                 icon: Icon(Icons.menu, color: Colors.white),
-                iconsize: 24.0,
-                edgeInsetsGeometry: const EdgeInsets.all(2.0),
-                alignmentGeometry: Alignment.center,
                 onPressed: () {
                   widget.scaffoldKey.currentState.openDrawer();
                 },
               ),
-              CustomIconButton(
+              IconButton(
                 icon: Icon(Icons.settings, color: Colors.white),
-                iconsize: 24.0,
-                edgeInsetsGeometry: const EdgeInsets.all(2.0),
-                alignmentGeometry: Alignment.center,
                 onPressed: () {
                   Navigator.push(context,
               new MaterialPageRoute(builder: (context) => new SettingPage()));
                 },
               ),
-               CustomIconButton(
+               IconButton(
                 icon: Icon(MdiIcons.fromString("accountBoxOutline"), color: Colors.white),
-                iconsize: 24.0,
-                edgeInsetsGeometry: const EdgeInsets.all(2.0),
-                alignmentGeometry: Alignment.center,
                 onPressed: () {
                   Navigator.push(context,
               new MaterialPageRoute(builder: (context) => new UserProfileScreen()));
                 },
               ),
-              CustomIconButton(
+              IconButton(
                 icon: Icon(MdiIcons.fromString("alertCircleOutline"), color: Colors.white),
-                iconsize: 24.0,
-                edgeInsetsGeometry: const EdgeInsets.all(2.0),
-                alignmentGeometry: Alignment.center,
                 onPressed: () {
                     Navigator.push(context,
               new MaterialPageRoute(builder: (context) => new HelpScreen()));
