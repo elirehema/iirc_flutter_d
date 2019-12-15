@@ -2,6 +2,7 @@
 
 import 'dart:async';
 
+import 'package:amala_statistics/screens/index.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget{
@@ -10,27 +11,22 @@ class SplashScreen extends StatefulWidget{
 }
 
 class _SplashScreenState extends State<SplashScreen>{
-  startTime() async {
-    var _duration = new Duration(seconds: 8);
-    return new Timer(_duration, navigationPage);
+  @override
+  void initState(){
+    super.initState();
+    Timer(Duration(seconds: 3), 
+    () => Navigator.of(context).pushReplacement(MaterialPageRoute(
+      builder: (BuildContext context) => HomeScreen())));
   }
-  void navigationPage() {
-  Navigator.of(context).pushReplacementNamed('/HomeScreen');
-}
 
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      backgroundColor: Colors.green,
+      backgroundColor: Colors.white,
       body: new Center(
-        child: new Image.asset('images/icon_one.png', width: 150, height: 150,),
+        child: new Image.asset('images/image.png', width: 150, height: 150,),
       ),
     );
-  }
-  @override
-  void initState(){
-    super.initState();
-    startTime();
   }
   
 }

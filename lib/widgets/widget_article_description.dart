@@ -1,8 +1,9 @@
 
+import 'package:amala_statistics/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
-class ArticleDescription extends StatelessWidget {
+class ArticleDescription extends StatefulWidget {
   ArticleDescription({
     Key key,
     this.title,
@@ -19,9 +20,14 @@ class ArticleDescription extends StatelessWidget {
   final String publishDate;
   final String readDuration;
   final double percentage;
+    State<StatefulWidget> createState() => _ArticleWidgetState();
+}
+class _ArticleWidgetState extends State<ArticleDescription>{
 
   @override
   Widget build(BuildContext context) {
+
+    Screen size = Screen(MediaQuery.of(context).size);
     return Material(
       child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,10 +46,10 @@ class ArticleDescription extends StatelessWidget {
                     flex: 3,
                     child: ListTile(
                       title: Text(
-                        title,
+                        widget.title,
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
-                      subtitle: Text(subtitle),
+                      subtitle: Text(widget.subtitle),
                     ),
                   ),
                   Expanded(
@@ -56,8 +62,7 @@ class ArticleDescription extends StatelessWidget {
                             color: Colors.redAccent,
                             fontWeight: FontWeight.bold),
                       ),
-                      subtitle: Text(
-                        "23.67",
+                      subtitle: Text("23.67",
                         textAlign: TextAlign.end,
                       ),
                     ),
@@ -67,9 +72,11 @@ class ArticleDescription extends StatelessWidget {
               ),
               const Padding(padding: EdgeInsets.only(bottom: 2.0)),
               Expanded(
-              child: LinearPercentIndicator(
+                flex: 0,
+              child: new LinearPercentIndicator(
                 lineHeight: 6.0,
-                percent: percentage,
+                width: size.hp(35),
+                percent: widget.percentage,
                 animation: true,
                 backgroundColor: Colors.lightGreenAccent,
                 progressColor: Colors.deepPurple,

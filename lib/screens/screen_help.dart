@@ -16,7 +16,7 @@ class HelpScreen extends StatelessWidget{
     return Scaffold(
       appBar: AppBar(
           title: Text(
-        'Read More Text',
+        'Need Some Help ?',
         style: TextStyle(color: Colors.white),
       )),
       body: DefaultTextStyle.merge(
